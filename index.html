@@ -1,0 +1,616 @@
+<!doctype html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>Vim motions tutorial</title>
+        <!-- Linking an external stylesheet -->
+        <link rel="stylesheet" href="main.css" />
+    </head>
+
+    <body>
+        <h1>VIM Motions Tutorial</h1>
+        <!-- Try to make the HTML semantic so that the names of the HTML tags make the structure of the page more clear -->
+        <main>
+            <section>
+                <p class="intro">
+                    &nbsp; &nbsp; &nbsp; &nbsp;Welcome, today I will instruct
+                    you on how to use my favorite text editor, VIM. Vim is a
+                    free and open-source, screen-based text editor program. It
+                    is an improved version of vi. Vim was authored by Bram
+                    Moolenaar in 1991, he remained the sole maintainer of this
+                    project until he died on august 3rd 2023.
+                    <br /><br />
+                    You'd be surprised to know that every single person in this
+                    classroom with a mac computer has Linux installed on their
+                    computer. Writers, programmers and enthusiasts today
+                    continue to use vim despite its age due to its unique
+                    philosophy, which employs the use of different modes that
+                    allow you to navigate within a line, within a word and
+                    within a file.
+                    <br /><br />
+                    Today I will teach you how to create and edit a new file
+                    with VIM on your Mac-book. In our case we will be using the
+                    "terminal" app on your mac to access vim and create a new
+                    python file. "python" is also something that is installed on
+                    all macs by default. We will be writing an running a simple
+                    python program that takes user input through the terminal
+                    command line interface and displays a message. Learning to
+                    write code with vim as opposed to plain text will be a bit
+                    more tricky and will reinforce VIM core concepts.
+                </p>
+                <h2>Who is Vim for?</h2>
+                <dl>
+                    <dt>Journalist</dt>
+                    <dd>
+                        Registers can save large chunks of information for later
+                        so that potential paragraphs can be deleted but kept
+                        temporarily.
+                    </dd>
+
+                    <dt>Programmer</dt>
+                    <dd>
+                        Vim's powerful editing features, such as syntax
+                        highlighting and code formatting, make it ideal for
+                        writing and editing code efficiently.
+                    </dd>
+
+                    <dt>Everyday Person</dt>
+                    <dd>
+                        Vim can be used for quick text editing tasks on any
+                        computer without the need for installing additional
+                        software.
+                    </dd>
+
+                    <dt>System Administrator</dt>
+                    <dd>
+                        With Vim, system administrators can edit configuration
+                        files and scripts directly on the server, leveraging its
+                        powerful search and replace capabilities.
+                    </dd>
+
+                    <dt>Academic Researcher</dt>
+                    <dd>
+                        Vim's distraction-free environment and markdown support
+                        make it perfect for writing research papers and keeping
+                        notes organized.
+                    </dd>
+                </dl>
+
+                <h3>Pre Requisites</h3>
+                <ul>
+                    <li>
+                        Computer operating system must be based on a Linux
+                        kernel, so MacOs or Linux (any version should work)
+                    </li>
+                    <li>
+                        Windows will work if the user has an app called "WSL" or
+                        (Windows Subsystem for Linux)
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 id="opening-vim" class="center">
+                    Opening Vim and Creating a new File
+                </h2>
+                <h3>Instructions for finding and opening VIM:</h3>
+                <ol>
+                    <li>
+                        Press the CMD and Space keys on your mac at the same
+                        time
+                    </li>
+                    <li>You should see a "Spotlight search" window popup</li>
+                    <li>
+                        Type "Terminal" to search for an application called
+                        terminal
+                    </li>
+                    <li>
+                        Select the application that shows an icon of a black
+                        square with '>' and "_" letters displayed within the
+                        image of the black box.
+                    </li>
+                    <li>
+                        Use the mouse to select and launch this application.
+                    </li>
+                </ol>
+
+                <h3>Ensuring that VIM and python are installed</h3>
+                <ol>
+                    <li>
+                        While mac should have these utilities installed by
+                        default, we will double check that "vim" and "python"
+                        are installed in your terminal
+                    </li>
+                    <li>
+                        Try typing "vim --version" into your terminal
+                        application, and hit enter to execute the command
+                    </li>
+                    <li>
+                        If the system responds with "command not found" then you
+                        should not continue the tutorial and you should seek
+                        assistance.
+                    </li>
+                    <li>
+                        Try typing "python --version" into your terminal
+                        application, and hit enter to execute the command
+                    </li>
+                    <li>
+                        If the system responds with "command not found" then you
+                        should not continue the tutorial and you should seek
+                        assistance.
+                    </li>
+                </ol>
+
+                <h3>Creating a new file</h3>
+                <ol>
+                    <li>
+                        Once you ensure that vim is installed you can launch the
+                        application
+                    </li>
+                    <li>
+                        Launch vim and create a new file called "hello.py" by
+                        running the command "vim hello.py" and hitting enter.
+                    </li>
+                    <li>
+                        You should see your screen change from a command line
+                        interface to an empty text buffer (the vim editor
+                        screen).
+                    </li>
+                    <li>
+                        Very importantly, do not try typing text as soon as you
+                        land on the vim editor.
+                    </li>
+                </ol>
+
+                <h3>Changing from Normal mode to insert mode</h3>
+                <ol>
+                    <li>
+                        When you first enter VIM you are in "NORMAL mode" there
+                        should be some kind of indicator somewhere on the screen
+                        that indicates that you are in normal mode
+                    </li>
+                    <li>
+                        In normal mode every single letter on the keyboard
+                        represents a command, for example in normal mode typing
+                        "dd" would delete the line that the cursor is currently
+                        on as opposed to a regular text editor which would
+                        always display the letters "dd" if you typed the letter
+                        dd.
+                    </li>
+                    <li>
+                        try to enter a traditional typing mode you must type the
+                        letter 'i' from normal mode to enter what is called
+                        "insert" mode.
+                    </li>
+                    <li>
+                        make sure you didn't press any keys in between first
+                        opening VIM and typing 'i' or you may not have actually
+                        entered insert mode.
+                    </li>
+                    <li>
+                        Verify that you have entered insert mode by looking for
+                        the word "insert" in the bottom left corner of the
+                        terminal window.
+                    </li>
+                    <li>
+                        Try exiting insert mode and going back into normal mode
+                        so that you can get a bit more comfortable with it
+                    </li>
+                    <li>Exit insert mode by pressing ESC</li>
+                    <li>
+                        Verify that you are now in normal mode by checking the
+                        bottom left corner of the terminal window.
+                    </li>
+                    <li>enter insert mode by pressing 'i' from normal mode</li>
+                </ol>
+            </section>
+
+            <section>
+                <h2 id="python-code" class="center">
+                    Typing our Starter Python Code
+                </h2>
+                <ol>
+                    <li>
+                        you can copy and paste this code into vim or type the
+                        code below into vim from insert mode.
+                    </li>
+                    <li>
+                        note that there may be some errors in the code that we
+                        will need to go in and fix later.
+                        <pre><code>
+# script to take user input of a name That name display a personalized greeting
+
+try:
+    # For Python 3.x
+    userInputName = input("please enter your name: ")
+except NameError:
+    # Fallback for Python 2.7
+    userInputName = raw_input("Please enter your name: ")
+
+# Display the greeting
+print("Hello " + userInputName)
+                                                    </code></pre>
+                    </li>
+                    <li>
+                        Double check that what you have typed matches this
+                        exactly, check that the tabs and spaces are the same as
+                        well. and that the first and last lines of the file are
+                        non-blank.
+                    </li>
+                </ol>
+
+                <h3>Navigating in normal mode to fix our issues:</h3>
+                <ol>
+                    <li>
+                        You should see a visual cursor on the screen when you
+                        are in normal mode, use the arrow keys to navigate your
+                        cursor around the words and lines.
+                    </li>
+                    <li>
+                        'gg' will take you to the very first line of a file.
+                    </li>
+                    <li>'G' will take you to the very last line of a file.</li>
+                    <li>
+                        DO NOT use your mouse for navigating the file, that's
+                        cheating and it's against the core philosophy of VIM.
+                        And also it might not work.
+                    </li>
+                </ol>
+            </section>
+
+            <section>
+                <h2 class="center">Fixing our Issues</h2>
+                <h3 id="issue-1">
+                    Issue 1 line 1: "# script to take user input of a name that
+                    name display a personalized greetingg"
+                </h3>
+                Issue explanation: "greetingg" has an extra 'g' at the end of
+                the word
+                <ul>
+                    <li>
+                        Pre-Execution steps
+                        <ul>
+                            <li>
+                                Ensure that you are in normal mode by pressing
+                                ESC.
+                                <ul>
+                                    <li>
+                                        Note: if you are already in normal mode
+                                        pressing ESC won't change your mode,
+                                        pressing it twice is okay especially
+                                        when you're starting out and you wanna
+                                        make extra sure that you are in normal
+                                        mode.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Move your cursor onto any word in the line
+                                indicated in the issue title. Use your arrow
+                                keys to navigate from normal mode.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Solution
+                        <ul>
+                            <li>
+                                Press "$" to go to the last character in the
+                                line
+                            </li>
+                            <li>
+                                Press "x" to delete the character (letter) under
+                                the cursor.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Postconditions
+                        <ul>
+                            <li>
+                                The word "greetingg" should now display as
+                                "greeting". The last character should have been
+                                deleted by the 'x' normal mode command.
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+
+                <h3 id="issue-2">
+                    Issue 2 line 1: "# script to take user input of a name that
+                    name display a personalized greetingg"
+                </h3>
+                Issue explanation: "That name" the 9th and 10th words in the
+                line should both be replaced with the word "and" so that the
+                sentence reads: "script to take the user input of a name and
+                display a personalized greeting"
+                <ul>
+                    <li>
+                        Pre-Execution steps
+                        <ul>
+                            <li>
+                                Ensure that you are in normal mode by pressing
+                                ESC.
+                                <ul>
+                                    <li>
+                                        Note: if you are already in normal mode
+                                        pressing ESC wont change your mode,
+                                        pressing it twice is okay especially
+                                        when you're starting out and you wanna
+                                        make extra sure that you are in normal
+                                        mode.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Move your cursor onto any word in the line
+                                indicated in the issue title. From normal mode
+                                use your arrow keys to navigate.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Solution
+                        <ul>
+                            <li>
+                                Press "0" to move your cursor to the first
+                                character in the line.
+                            </li>
+                            <li>
+                                Press "f" and after you are done pressing f,
+                                press 'Shift+t' (capital 'T')
+                                <ul>
+                                    <li>
+                                        This normal mode command finds the first
+                                        instance of the key pressed after 'f' in
+                                        this case capital 'T' and moves your
+                                        cursor onto the letter that you searched
+                                        for.
+                                    </li>
+                                    <li>"f" (find) + (letter to find)</li>
+                                </ul>
+                            </li>
+                            <li>
+                                Now that our cursor is in the right spot we can
+                                go ahead and delete those two words and replace
+                                them with 'and'
+                            </li>
+                            <li>
+                                Press these keys, one after another, not at the
+                                same time: "c2w+and+ESC"
+                                <ul>
+                                    <li>
+                                        DO not enter the quotation marks or the
+                                        '+' these are here for logical
+                                        separation of the pieces of this command
+                                    </li>
+                                    <li>
+                                        ESC means the escape key on your
+                                        computer not the "E+S+C" capital letter
+                                        keys on your computer
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                c2w
+                                <ul>
+                                    <li>
+                                        'c' means delete and after specifying
+                                        what to delete go into insert mode
+                                        automatically
+                                    </li>
+                                    <li>
+                                        '2' is specifying a number for our
+                                        following command which selects a word,
+                                        this number makes the following command
+                                        delete 2 words
+                                    </li>
+                                    <li>
+                                        'w' is specifying a text object to the
+                                        delete command of what to delete. This
+                                        text object can be anything
+                                        <ul>
+                                            <li>
+                                                Text Object examples: any of
+                                                these text objects could be used
+                                                after 'c2w'
+                                                <ul>
+                                                    <li>
+                                                        '5b' 5 words behind me
+                                                    </li>
+                                                    <li>'2)' 2 sentences</li>
+                                                    <li>
+                                                        '10j' 10 lines below me
+                                                    </li>
+                                                    <li>
+                                                        '10k' 10 lines above me
+                                                    </li>
+                                                    <li>"}" one paragraph</li>
+                                                    <li>
+                                                        'i"' the first quoted
+                                                        string anywhere on the
+                                                        line you currently are
+                                                    </li>
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                After running the "c2w" command you will be in
+                                insert mode and typing and will display 'and' on
+                                the screen.
+                            </li>
+                            <li>
+                                Pressing ESC takes you out of insert mode and
+                                back into normal mode.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Post-conditions
+                        <ul>
+                            <li>
+                                the line should read "script to take the user
+                                input of a name and display a personalized
+                                greeting"
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+                <h3 id="issue-3">
+                    Issue 3 line 5: ' userInputName = input("please enter your
+                    name: ")'
+                </h3>
+                Issue explanation: "please" - should be capitalized like it is
+                in line number 8.
+                <ul>
+                    <li>
+                        Pre-Execution steps
+                        <ul>
+                            <li>
+                                Ensure that you are in normal mode by pressing
+                                ESC.
+                                <ul>
+                                    <li>
+                                        Note: if you are already in normal mode
+                                        pressing ESC wont change your mode,
+                                        pressing it twice is okay especially
+                                        when you're starting out and you wanna
+                                        make extra sure that you are in normal
+                                        mode.
+                                    </li>
+                                </ul>
+                            </li>
+                            <li>
+                                Move your cursor onto any word in the line
+                                indicated in the issue title. From normal mode
+                                use your arrow keys to navigate.
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Solution
+                        <ul>
+                            <li>
+                                Move your cursor onto any word in the line
+                                indicated in the issue title. From normal mode
+                                use your arrow keys to navigate.
+                            </li>
+                            <li>
+                                Press "0" to move your cursor to the first
+                                character in the line. Press "f" and after you
+                                are done pressing f, press 'p' This normal mode
+                                command finds the first instance of the key
+                                pressed after 'f' in this case lowercase 'p' and
+                                moves your cursor onto the letter that you
+                                searched for. "f" (find) + (letter to find)
+                                Unlike the last issue, the find command does not
+                                find the letter that we need, we want our cursor
+                                to be on the 'p' in please but instead it is on
+                                the 'p' in "userInputName"
+                            </li>
+                            <li>
+                                Press ";" to repeat the last find command in the
+                                same direction (in this case in the direction of
+                                the end of the line) this should move your
+                                cursor onto the 'p' in "input".
+                            </li>
+                            <li>
+                                Press ";" to repeat the last find command in the
+                                same direction once more, this should move your
+                                cursor onto the 'p' in "please" which is the
+                                letter that we are trying to change.
+                            </li>
+                            <li>
+                                Press "~" or "gUl" to capitalize the letter
+                                under your cursor.
+                            </li>
+                            <li>
+                                Now that our cursor is in the right spot we can
+                                go ahead and delete those two words and replace
+                                them with 'and'
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        Postconditions
+                        <ul>
+                            <li>
+                                The indicated line should read ' userInputName =
+                                input("Please enter your name: ")'
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+
+            <section>
+                <h2 id="exiting-vim" class="center">
+                    Exiting Vim and Running our Code
+                </h2>
+                <h3>After fixing the issues: exiting VIM.</h3>
+                <ol>
+                    <li>
+                        After fixing the issues, make sure that the indentations
+                        did not change at any point throughout your editing
+                        compared to the original provided code, if they did then
+                        the code will not run.
+                    </li>
+                    <li>
+                        To exit vim and go back to the command line interface
+                        that you started from
+                        <ul>
+                            <li>
+                                First make sure you are in normal mode by
+                                pressing ESC.
+                            </li>
+                            <li>
+                                Press "ZZ" (make sure you use capital letters)
+                                to go back to the terminal command line
+                                interface that you started from. This normal
+                                mode command will automatically save and quit
+                                the file.
+                            </li>
+                        </ul>
+                    </li>
+                </ol>
+
+                <h3>Running the code.</h3>
+                <ol>
+                    <li>
+                        Type "python hello.py" into your terminal interface and
+                        hit enter.
+                    </li>
+                    <li>
+                        If you do not get any errors running your code and you
+                        followed all steps correctly, you should see a message
+                        input in your terminal that says "Please enter your
+                        name: " after running the command.
+                    </li>
+                    <li>
+                        Type your name into this terminal input program that you
+                        just created and hit enter.
+                    </li>
+                    <li>
+                        The program should display "Hello" + (The name that you
+                        entered).
+                    </li>
+                    <li>
+                        Your terminal should return back to its original state.
+                    </li>
+                </ol>
+            </section>
+        </main>
+
+        <footer>
+            <p>
+                <a class="link left-offset-20" href="reflection.html"
+                    >Go to Reflection Letter</a
+                >
+            </p>
+        </footer>
+    </body>
+</html>

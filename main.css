@@ -1,0 +1,105 @@
+/* Default html element styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: cornflowerblue;
+    margin: 0;
+    padding: 0;
+}
+
+main {
+    line-height: 1.5;
+    margin-inline: 15vw;
+    border-width: 3px;
+    border-style: solid;
+    border-radius: 50px;
+    margin-top: 10px;
+    padding: 35px;
+    background-color: lightgray;
+    display: block;
+}
+
+h1 {
+    text-decoration: underline;
+    text-align: center;
+    width: full;
+    margin-top: 15px;
+    letter-spacing: 4px;
+}
+
+/* Nav bar related styles */
+nav {
+    background-color: darkgray;
+    color: white;
+    border-bottom: 2px solid black;
+    position: fixed;
+    width: 100vw;
+    top: 0;
+}
+
+nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    padding: 0;
+    width: 90%;
+    margin-inline: auto;
+    list-style: none;
+}
+
+nav a {
+    color: lightpink;
+    text-decoration: none;
+    padding: 10px;
+    background-color: darkblue;
+    padding-inline: 10px;
+    border-radius: 5px;
+}
+
+nav a:visited {
+    color: lightgreen;
+}
+
+nav li:hover a {
+    background-color: lightblue;
+    color: black !important;
+}
+
+/* Utility classes (like a wrapper for some utility, alternitive to inline styles, modular and reusable) */
+.center {
+    width: full;
+    text-align: center;
+}
+
+.left-offset-20 {
+    margin-left: 20px;
+}
+
+/* Specific classes and Id's */
+.link {
+    color: blue;
+    text-decoration: underline;
+}
+
+.link:visited {
+    color: purple;
+    text-decoration: underline;
+}
+
+.intro {
+    font-size: 1.1em;
+    font-weight: medium;
+    color: black;
+}
+
+#reflection-link {
+    margin-top: 20px;
+    margin-bottom: -20px;
+    display: block;
+}
+
+/* This pseudo element helps to offset the id links from the top of the page so that the header does not cover the top of the section. */
+:target {
+    padding-top: 70px; /* Height of your fixed header */
+    margin-top: -70px; /* Negative value of the padding */
+    display: block;
+}
